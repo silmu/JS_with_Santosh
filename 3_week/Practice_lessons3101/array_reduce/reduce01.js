@@ -11,13 +11,13 @@ Feel free to change the numbers in the grades array and check the output in the 
 /**
  * 
  */
- let grades = [10, 5, 15, 20];
+let grades = [10, 5, 15, 20];
 
- let sum = grades.reduce((total, current) => {
-     console.log(`Total is ${total}`);
-     console.log(`Current is ${current}`);
-     console.log("---");
-     return total + current;
- }, 0);
+let sum = grades.reduce((total, current) => {
+  console.log(`Total is ${total}`);
+  console.log(`Current is ${current}`);
+  console.log('---');
+  return total + current;
+}, 0);
 
- console.log(`Sum is ${sum}`);
+console.log(`Sum is ${sum}`);

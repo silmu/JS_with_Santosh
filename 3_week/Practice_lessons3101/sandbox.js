@@ -1,10 +1,11 @@
-const createCircle = (radius) => {
-  const circle = {
-    area: Math.PI * radius * radius,
-    circumference: 2 * Math.PI * radius,
-  };
-  return circle;
+const user = {
+  details: {
+    firstName: 'Sam',
+  },
+  data: null,
 };
-const circle = createCircle(3);
-console.log(circle.area);
-console.log(circle.circumference);
+
+console.log(user.details?.firstName);
+console.log(user.data?.id);
+console.log(user.children?.names);
+console.log(user.details?.parent?.firstName);

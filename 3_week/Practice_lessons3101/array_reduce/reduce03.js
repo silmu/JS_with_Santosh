@@ -10,9 +10,7 @@ Complete the function such that it returns the sum of the numbers it receives as
  * @param {number[]} numbers
  */
 const sumNumbers = (numbers) =>
-  numbers.reduce((total, current) => {
-    return total + current;
-  }, 0);
+  numbers.reduce((total, current) => total + current);
 
 // Sample usage - do not modify
 console.log(sumNumbers([10, 20, 30])); // 60
