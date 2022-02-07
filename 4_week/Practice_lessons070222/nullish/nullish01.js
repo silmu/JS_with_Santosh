@@ -8,10 +8,8 @@ When the age is not defined, default to the string "unknown".
  * @param {object} user
  * @param {number} [user.age]
  */
-const getAge = user => {
-
-}
+const getAge = (user) => user.age ?? 'unknown';
 
 // Sample usage - do not modify
-console.log(getAge({age: 19})); // 19
+console.log(getAge({ age: 19 })); // 19
 console.log(getAge({})); // "unknown"
