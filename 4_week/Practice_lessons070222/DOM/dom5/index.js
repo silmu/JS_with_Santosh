@@ -1,4 +1,4 @@
-const getSelectedCurrency = () => document.querySelector('.card active');
+const getSelectedCurrency = () => document.querySelector('.active').textContent;
 
 document.querySelectorAll('.cards .card').forEach((card) => {
   card.addEventListener('click', (event) => {
