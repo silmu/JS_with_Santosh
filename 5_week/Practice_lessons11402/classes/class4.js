@@ -6,7 +6,11 @@ a new instance of the class is being created..
 **/
 
 // write class definition
-class Recipe {}
+class Recipe {
+  constructor(name, calories) {
+    console.log(`${name}: ${calories} calories`);
+  }
+}
 
 // Class usage
 let pasta = new Recipe('Pasta', 600);

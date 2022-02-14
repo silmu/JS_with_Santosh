@@ -10,3 +10,5 @@ visualize the returned object in the console.
 class User {
   // empty class for now
 }
+let user1 = new User();
+console.log(user1);

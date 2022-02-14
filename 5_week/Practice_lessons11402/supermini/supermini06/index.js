@@ -4,14 +4,17 @@ class NameVariations {
 
   getNumberOfChars() {
     // return the number of characters in: name
+    return name.value.length;
   }
 
   getLower() {
     // return name all in lower case (example: "ABC" becomes "abc")
+    return name.value.toLowerCase();
   }
 
   getUpper() {
     // return name all in upper case (example: "abc" becomes "ABC")
+    return name.value.toUpperCase();
   }
 }
 

@@ -4,7 +4,19 @@ class Tasks {
   }
 
   /** @param {string} csvString */
-  importCsv(csvString) {}
+  importCsv(csvString) {
+    const tasks = csvString.split(',');
+    this.tasks = tasks;
+  }
+
+  getCount = () => this.tasks.length;
+
+  getFirst = () => this.tasks[0];
+
+  getLast = () => this.tasks[this.tasks.length - 1];
+
+  getUnformattedTasks = () =>
+    this.tasks.map((task) => task.toLowerCase()).join(', ');
 }
 
 //Sample usage do not modify (but feel free to read)
