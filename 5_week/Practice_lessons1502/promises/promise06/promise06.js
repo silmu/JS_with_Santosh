@@ -15,4 +15,4 @@ const waitForCompleteClick = () => {
 };
 
 // Update here...
-console.log('Complete clicked');
+waitForCompleteClick().then(() => console.log('Complete clicked'));

@@ -2,24 +2,24 @@
 
 // Sample usage (do not modify)
 const fakeFetch = (endpoint) => {
-    return new Promise((resolve, reject) => {
-        if (endpoint !== "flight-status") {
-            reject("Invalid endpoint. Only flight-status is supported.")
-        }
-        const min = 1;
-        const max = 2;
-        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+  return new Promise((resolve, reject) => {
+    if (endpoint !== 'flight-status') {
+      reject('Invalid endpoint. Only flight-status is supported.');
+    }
+    const min = 1;
+    const max = 2;
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
 
-        const dataToResolve = {
-            departed: false,
-            delayed: true
-        };
+    const dataToResolve = {
+      departed: false,
+      delayed: true,
+    };
 
-        setTimeout(() => {
-            resolve(dataToResolve);
-        }, rand);
-    });
-}
+    setTimeout(() => {
+      resolve(dataToResolve);
+    }, rand);
+  });
+};
 
 /**
 For now, I've created another fakeFetch function that takes a string as a parameter.
@@ -29,8 +29,10 @@ Call this fakeFetch function inside the logFlightStatus function and then log th
 data that it receives once it has completed......*/
 
 const logFlightStatus = () => {
-
-}
+  fakeFetch('flight-status').then((e) => {
+    console.log(e);
+  });
+};
 
 // Sample usage (do not modify)
 logFlightStatus();
