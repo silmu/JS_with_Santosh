@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-image: linear-gradient(rgb(84, 70, 170), slateblue);
+  padding: 0.5em;
+  color: white;
+}
+
+main {
+  padding: 0.5em;
+  border: 1px solid lightgray;
+}
+
+.add_item {
+  width: 50vw;
+  padding: 0.5em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  padding: 0.5em 2em;
+  margin: 0.5em;
+  background-image: linear-gradient(rgb(84, 70, 170), slateblue);
+  border: none;
+  border-radius: 2em;
+  color: white;
+}
