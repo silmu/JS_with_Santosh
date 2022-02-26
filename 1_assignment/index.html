@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>To Do List</title>
   </head>
@@ -12,17 +18,23 @@
       <h1>To Do List</h1>
     </header>
     <main>
-      <div class="add_item">
-        <label for="#add">Add a task</label>
+      <!-- Add a task -->
+      <div class=".container-add_item">
+        <h2>Add a task</h2>
+        <label for="#add">Add a task here:</label>
         <input type="text" id="add" />
         <button type="button" id="btn-add">Add</button>
-        <div>
-          <h2>Tasks:</h2>
-          <ul class="itemList">
-            <li><input type="checkbox" />Example task</li>
-          </ul>
-          <button type="button" id="btn-done">Mark as done</button>
-        </div>
+      </div>
+      <!-- Tasks list -->
+      <div class="container-tasks">
+        <h3>Tasks:</h3>
+        <ul class="itemList">
+          <li>
+            <input type="checkbox" id="task0" class="check" />
+            <label for="task1">Example task</label>
+          </li>
+        </ul>
+        <button type="button" id="btn-done">Mark as done</button>
       </div>
     </main>
     <script src="main.js"></script>

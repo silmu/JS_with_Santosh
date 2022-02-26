@@ -6,22 +6,33 @@ const toDoList = [];
 
 const addItem = () => {
   if (itemToAdd.value !== '') {
+    toDoList.push('Example task');
     toDoList.push(itemToAdd.value);
+
+    let i = toDoList.indexOf(itemToAdd.value);
+
+    console.log(itemToAdd.value + ' is at index ' + i);
     console.log(toDoList);
+
     itemList.insertAdjacentHTML(
       'beforeend',
-      `<li><input type="checkbox class="check">${itemToAdd.value}</li>`
+      `<li><input type="checkbox" id="task${i}" class="check">
+      <label for="task${i}" >${itemToAdd.value}</label></li>`
     );
   }
 };
 
 const removeItem = () => {
-  let taskList = document.querySelectorAll('li');
-  taskList.forEach((task) => {
-    if (task.checked !== true) {
+  console.log('Button Mark as done is clicked');
+  let checkboxes = document.querySelectorAll('.check');
+  console.log(checkboxes);
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked === true) {
+      //Get the label of the checked checkbox
+      console.log(checkbox.nextElementSibling.innerHTML + ' is removed');
+      checkbox.parentElement.remove();
     }
   });
-  console.log(itemList);
 };
 
 btnAdd.addEventListener('click', addItem);
