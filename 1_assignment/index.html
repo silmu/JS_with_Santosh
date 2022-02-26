@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>To Do List</title>
   </head>
@@ -18,24 +22,25 @@
       <h1>To Do List</h1>
     </header>
     <main>
-      <!-- Add a task -->
-      <div class=".container-add_item">
-        <h2>Add a task</h2>
-        <label for="#add">Add a task here:</label>
-        <input type="text" id="add" />
-        <button type="button" id="btn-add">Add</button>
-      </div>
       <!-- Tasks list -->
       <div class="container-tasks">
         <h3>Tasks:</h3>
         <ul class="itemList">
           <li>
             <input type="checkbox" id="task0" class="check" />
-            <label for="task1">Example task</label>
+            <label for="task0">Example task</label>
           </li>
         </ul>
-        <button type="button" id="btn-done">Mark as done</button>
       </div>
+      <!-- Add a task -->
+      <div class="container-add_item">
+        <input type="text" id="add" placeholder="Add a task here" />
+
+        <button type="button" id="btn-add">
+          <span class="material-icons"> add_circle </span>
+        </button>
+      </div>
+      <button type="button" id="btn-done">Done</button>
     </main>
     <script src="main.js"></script>
   </body>

@@ -12,12 +12,6 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-main {
-  height: 100vh;
-  background-image: linear-gradient(white, rgb(255, 255, 255, 0.4));
-  backdrop-filter: blur(3px);
-}
-
 header {
   background-image: linear-gradient(rgb(84, 70, 170), slateblue);
   border: 1px solid slateblue;
@@ -27,33 +21,52 @@ header {
 }
 
 main {
-  padding: 1em;
-  border: 1px solid lightgray;
+  height: 100vh;
+  background-image: linear-gradient(white, rgb(255, 255, 255, 0.4));
+  backdrop-filter: blur(3px);
+  padding: 0 1em;
+}
+
+#btn-done {
+  padding: 1em 2em;
+  margin: 1em 1em;
+  background-image: linear-gradient(rgb(84, 70, 170), slateblue);
+  border: 1px solid slateblue;
+  border-radius: 2em;
+  color: white;
+  box-shadow: 1px 1px 1px rgb(74, 59, 170, 0.5);
 }
 
 /* Add a task */
 .container-add_item {
-  width: 50vw;
-  padding: 1em;
+  padding: 0 0.5em;
+  display: flex;
 }
 
-.btn-add {
-  display: block;
+.container-add_item input {
+  padding: 0.8em;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  display: inline-block;
+  width: 40vw;
 }
 
-input {
-  padding: 0.5em;
+.material-icons {
+  font-size: 2em;
+  color: slateblue;
+  border: none;
 }
 
-label {
-  display: block;
-  font-weight: 300;
-  font-style: italic;
+#btn-add {
+  display: inline-block;
+  border: none;
+  background: none;
+  margin-left: 1em;
 }
 
 /* Tasks */
 .container-tasks {
-  padding: 0.5em;
+  padding: 0 0.5em;
 }
 
 .container-tasks h3 {
@@ -70,14 +83,5 @@ li {
   border-radius: 5px;
   background-color: white;
   max-width: 50vw;
-}
-
-button {
-  padding: 1em 2em;
-  margin: 0.5em;
-  background-image: linear-gradient(rgb(84, 70, 170), slateblue);
-  border: 1px solid slateblue;
-  border-radius: 2em;
-  color: white;
-  box-shadow: 1px 1px 1px rgb(74, 59, 170, 0.5);
+  margin-bottom: 0.5em;
 }

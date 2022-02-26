@@ -30,7 +30,10 @@ const removeItem = () => {
     if (checkbox.checked === true) {
       //Get the label of the checked checkbox
       console.log(checkbox.nextElementSibling.innerHTML + ' is removed');
+      //Remove the task from HTML list
       checkbox.parentElement.remove();
+      //Remove task from JS list
+      let i = toDoList.indexOf(checkbox.nextElementSibling.innerHTML);
     }
   });
 };
