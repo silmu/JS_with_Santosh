@@ -1,29 +1,29 @@
 // Sample usage - do not modify
-const loader = document.querySelector("#app-loader");
+const loader = document.querySelector('#app-loader');
 const startLoader = () => {
-   loader.textContent = "Loading...";
-}
- const stopLoader = () => {
-    loader.textContent = "";
-}
+  loader.textContent = 'Loading...';
+};
+const stopLoader = () => {
+  loader.textContent = '';
+};
 const getWeatherDescription = (city) => {
-    return new Promise((resolve, reject) => {
-        if (!city || typeof city !== "string") {
-            reject("City must be a string");
-        }
-        if (!["helsinki", "tokyo"].includes(city.toLowerCase())) {
-            reject("City must be Helsinki or Tokyo");
-        }
-        // simulate network request
-        setTimeout(() => {
-            if (city.toLowerCase() === "helsinki") {
-                resolve("Cloudy");
-            }
-            if (city.toLowerCase() === "tokyo") {
-                resolve("Sunny");
-            }
-        }, 1000);
-    });
+  return new Promise((resolve, reject) => {
+    if (!city || typeof city !== 'string') {
+      reject('City must be a string');
+    }
+    if (!['helsinki', 'tokyo'].includes(city.toLowerCase())) {
+      reject('City must be Helsinki or Tokyo');
+    }
+    // simulate network request
+    setTimeout(() => {
+      if (city.toLowerCase() === 'helsinki') {
+        resolve('Cloudy');
+      }
+      if (city.toLowerCase() === 'tokyo') {
+        resolve('Sunny');
+      }
+    }, 1000);
+  });
 };
 
 /*
@@ -34,20 +34,20 @@ Update the code getting rid of the stopLoader() duplication (it should only be c
 /**
  * @param {string} cityName
  */
-const logWeatherDescription = cityName => {
-    startLoader();
-    getWeatherDescription(cityName)
-        .then(data => {
-            stopLoader();
-            console.log(data);
-        })
-        .catch(error => {
-            stopLoader();
-            console.error(error);
-        });
-}
+const logWeatherDescription = (cityName) => {
+  startLoader();
+  getWeatherDescription(cityName)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(error);
+    })
+    .finally(() => {
+      stopLoader();
+    });
+};
 
-
-logWeatherDescription("Helsinki"); // will eventually log "Cloudy"
-logWeatherDescription("Tokyo"); // will eventually log "Sunny"
-logWeatherDescription("Patagonia"); // will eventually fail
+logWeatherDescription('Helsinki'); // will eventually log "Cloudy"
+logWeatherDescription('Tokyo'); // will eventually log "Sunny"
+logWeatherDescription('Patagonia'); // will eventually fail
