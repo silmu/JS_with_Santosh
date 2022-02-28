@@ -31,6 +31,8 @@ const logFinishedTask = (task) => {
   log.insertAdjacentHTML('beforeend', `<li>${task}</li>`);
 };
 
+logFinishedTask('Example task finished');
+
 const removeItem = () => {
   console.log('Button Done is clicked');
   let checkboxes = document.querySelectorAll('.check');

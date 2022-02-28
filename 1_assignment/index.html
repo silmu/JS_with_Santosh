@@ -19,14 +19,21 @@
   </head>
   <body>
     <header>
-      <h1>To Do List</h1>
+      <h1>TO DO List</h1>
     </header>
     <main>
       <!-- Tasks list -->
 
       <div class="container-tasks">
-        <btn class="btn-tgl"></btn>
         <h3>Tasks:</h3>
+        <!-- Add a task -->
+        <div class="container-add_item">
+          <input type="text" id="add" placeholder="Add a task here" />
+          <button type="button" id="btn-add">
+            <span class="material-icons"> add_circle </span>
+          </button>
+        </div>
+        <!-- TODO List -->
         <ul class="itemList">
           <li>
             <input type="checkbox" id="task0" class="check" />
@@ -34,16 +41,11 @@
           </li>
         </ul>
       </div>
-      <!-- Add a task -->
-      <div class="container-add_item">
-        <input type="text" id="add" placeholder="Add a task here" />
 
-        <button type="button" id="btn-add">
-          <span class="material-icons"> add_circle </span>
-        </button>
-      </div>
       <button type="button" id="btn-done">Done</button>
-      <button type="button" id="btn-pin">Pin</button>
+      <button type="button" id="btn-pin">
+        Pin <i class="fa-solid fa-thumbtack"></i>
+      </button>
 
       <ul class="finished-tasks">
         <h4>Finished tasks:</h4>
