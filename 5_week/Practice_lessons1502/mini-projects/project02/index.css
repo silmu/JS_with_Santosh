@@ -281,28 +281,28 @@ button {
 }
 
 #repos-list {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 #repos-list li {
-    padding: 25px 20px;
-    background-color: white;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    margin: 15px 0;
-    border-radius: 3px;
-    transition: opacity 150ms ease-out;
-    opacity: 0.85;
+  padding: 25px 20px;
+  background-color: white;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+  border-radius: 3px;
+  transition: opacity 150ms ease-out;
+  opacity: 0.85;
 }
 #repos-list li:hover {
-    opacity: 1;
+  opacity: 1;
 }
 #repos-list h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 #repos-list p {
-    color: #111;
-    margin-bottom: 0;
+  color: #111;
+  margin-bottom: 0;
 }
 #repos-list a {
-    text-decoration: none;
+  text-decoration: none;
 }

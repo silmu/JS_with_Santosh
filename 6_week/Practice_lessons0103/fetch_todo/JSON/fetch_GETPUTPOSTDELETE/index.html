@@ -17,13 +17,13 @@
           return fetch(this.baseURL + id).then((response) => response.json());
         }
 
-        post(body) {
-          const random = Math.floor(Math.random() * 1000);
-          return _send('post', this.baseURL + random);
+        post(userId) {
+          // const random = Math.floor(Math.random() * 1000);
+          // return _send('post', this.baseURL + random);
         }
 
         put(endpoint, id) {
-          return send('put', endpoint, 5);
+          // return send('put', endpoint, 5);
         }
         patch(endpoint) {}
       }
@@ -31,11 +31,24 @@
       const API = new FetchWrapper(
         'https://jsonplaceholder.typicode.com/todos/'
       );
+      //Alternative GET method
+      // fetch('https://jsonplaceholder.typicode.com/todos/')
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
 
       // will return all resources
 
       // GET retrieves the to-do with specific URI (in this case id = 5)
-      API.get(5).then((data) => console.log(data));
+      // API.get(5).then((data) => console.log(data));
+
+      //Alternative POST method
+      // fetch('https://jsonplaceholder.typicode.com/todos/5')
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
 
       /* will return this specific resource:
         {
@@ -47,10 +60,46 @@
         */
 
       // POST adds a random id to the object sent
-      API.post();
+      // fetch('https://jsonplaceholder.typicode.com/todos', {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     userId: 10,
+      //     title: 'clean room',
+      //     completed: false,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=utf-8',
+      //   },
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
 
-      /* will return
+      // will return
 
+      // fetch('https://jsonplaceholder.typicode.com/todos/5', {
+      //   method: 'PUT',
+      //   body: JSON.stringify({
+      //     userId: 1,
+      //     id: 5,
+      //     title: 'read a book',
+      //     completed: false,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=utf-8',
+      //   },
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
+
+      // fetch('https://jsonplaceholder.typicode.com/todos/5')
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
 
       // PUT to the resource with id = 5 to change the name of task
 
@@ -74,8 +123,34 @@
             "completed": true
         }
         */
+      // fetch('https://jsonplaceholder.typicode.com/todos/1', {
+      //   method: 'PATCH',
+      //   body: JSON.stringify({
+      //     completed: true,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json; charset=utf-8',
+      //   },
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //   });
 
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
       // DELETE task with id = 1
+
+      fetch('https://jsonplaceholder.typicode.com/todos/1', {
+        method: 'DELETE',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
 
       // empty response: {}
     </script>

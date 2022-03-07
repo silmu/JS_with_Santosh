@@ -50,10 +50,28 @@ kalwar or yourgithubusername), and then when the user submits the form,
 the app will show the list of GitHub repositories for that user using the GitHub API. */
 
 /* Write your code here... */
-const input = document.querySelector('#github-username');
-const btn = document.querySelector('#get-repos');
 
-btn.addEventListener('click', () => {
-  const fetch = new FetchWrapper('https://api.github.com/');
-  fetch.get('');
+const btn = document.querySelector('#get-repos');
+const output = document.querySelector('#repos-list');
+
+btn.addEventListener('click', (e) => {
+  const input = document.querySelector('#github-username').value;
+  console.log(input);
+  e.preventDefault();
+  const API = new FetchWrapper('https://api.github.com/users/');
+  API.get(`${input}/repos`).then((data) => {
+    console.log(data);
+    printRepos(data);
+  });
 });
+
+const printRepos = (data) => {
+  const li = document.createElement('li');
+  data.forEach((repo) => {
+    console.log('Repo:' + repo);
+    output.insertAdjacentHTML(
+      'beforeend',
+      `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`
+    );
+  });
+};
