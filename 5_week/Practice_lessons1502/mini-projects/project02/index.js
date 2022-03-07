@@ -52,12 +52,12 @@ the app will show the list of GitHub repositories for that user using the GitHub
 /* Write your code here... */
 
 const btn = document.querySelector('#get-repos');
-const output = document.querySelector('#repos-list');
+const ul = document.querySelector('#repos-list');
 
 btn.addEventListener('click', (e) => {
-  const input = document.querySelector('#github-username').value;
-  console.log(input);
   e.preventDefault();
+  ul.innerHTML = '';
+  const input = document.querySelector('#github-username').value;
   const API = new FetchWrapper('https://api.github.com/users/');
   API.get(`${input}/repos`).then((data) => {
     console.log(data);
@@ -66,12 +66,11 @@ btn.addEventListener('click', (e) => {
 });
 
 const printRepos = (data) => {
-  const li = document.createElement('li');
   data.forEach((repo) => {
-    console.log('Repo:' + repo);
-    output.insertAdjacentHTML(
+    repo.description === null ? (repo.description = '') : '';
+    ul.insertAdjacentHTML(
       'beforeend',
-      `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`
+      `<li><a href="${repo.html_url}" target="_blank"><h2>${repo.full_name}</h2><p>${repo.description}</p></a></li>`
     );
   });
 };

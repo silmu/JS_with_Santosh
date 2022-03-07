@@ -305,4 +305,5 @@ button {
 }
 #repos-list a {
   text-decoration: none;
+  font-style: italic;
 }
