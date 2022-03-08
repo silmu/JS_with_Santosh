@@ -4,11 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Food tracker</title>
   </head>
   <body>
     <header>
-      <h1>Food tracker</h1>
+      <h1><i class="fa-solid fa-carrot"></i> Food tracker</h1>
     </header>
+    <main>
+      <div class="container-remaining-cals">
+        <h2>Remaining calories</h2>
+        <div class="remaining-cals"></div>
+        <div class="diagram">
+          <!-- Canvas from charts goes here -->
+        </div>
+      </div>
+      <div class="container-add-food">
+        <h2>Add food</h2>
+        <div class="container-search">
+          <input type="text" id="input-search" placeholder="Search for food" />
+        </div>
+      </div> 
+        <div class="container-add-new">
+          <h2>Add new food item</h2>
+          <form>
+            <div class="input">
+              <label for="input-new-food">Food name:</label>
+              <input type="text" id="input-new-food" />
+            </div>
+            <div class="input">
+              <label for="input-carbs">Carbs:</label>
+              <input type="number" id="input-carbs" />
+            </div>
+            <div class="input">
+              <label for="input-protein">Protein:</label>
+              <input type="number" id="input-protein" />
+            </div>
+            <div class="input">
+              <label for="input-fat">Fat:</label>
+              <input type="number" id="input-fat" />
+            </div>
+            <div class="input">
+              <label for="input-calories">Calories:</label>
+              <input type="number" id="input-calories" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="container-diary">
+        <h2>Diary</h2>
+        <div class="content-diary">
+          <h3>Breakfast</h3>
+          <ul class="breakfast"></ul>
+          <button type="submit" id="btn-add-breakfast" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Lunch</h3>
+          <ul class="lunch"></ul>
+          <button type="submit" id="btn-add-lunch" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Dinner</h3>
+          <ul class="dinner"></ul>
+          <button type="submit" id="btn-add-dinner" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Snacks</h3>
+          <ul class="snacks"></ul>
+          <button type="submit" id="btn-add-snacks" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="container-history">
+        <h2>History</h2>
+      </div>
+    </main>
+    <script src="https://kit.fontawesome.com/45a0aa406c.js" crossorigin="anonymous"></script>
   </body>
 </html>

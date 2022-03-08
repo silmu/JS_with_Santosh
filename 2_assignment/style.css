@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1578855691621-8a08ea00d1fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  backdrop-filter: blur(6px);
+  font-family: 'Raleway', sans-serif;
+}
+
+header,
+main {
+  max-width: 1200px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #cedd55;
+  color: white;
+  height: fit-content;
+  padding: 1rem;
+}
+
+h2,
+h3 {
+  padding-bottom: 1rem;
+}
+
+h3 {
+}
+
+/* Remaining calories */
+
+.container-remaining-cals {
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+}
+
+/* Add food */
+.container-add-food {
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+}
+
+/* Add new food item */
+.container-add-new {
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+}
+
+.input {
+  padding-bottom: 1rem;
+  width: 100px;
+}
+
+/* Diary */
+.container-diary {
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+}
+.btns-diary {
+  padding: 0.5rem 1rem;
+  border: 1px solid #c6c6c6;
+  background-color: #f5f5f5;
+  margin-bottom: 1rem;
+}
+
+.btns-diary:hover {
+  background-color: #d45464;
+  border-color: #d45464;
+  color: white;
+}
+
+.btns-diary:active {
+  background: linear-gradient(#b64451, #d45464);
+  box-shadow: 2px 2px 2px #c6c6c6;
+}
+
+/* History */
+.container-history {
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+}

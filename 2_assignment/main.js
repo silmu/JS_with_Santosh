@@ -41,8 +41,9 @@ class FetchWrapper {
   }
 }
 
+//%7b is { %7d is }. The code between is random id
 const API = new FetchWrapper(
-  'https://firestore.googleapis.com/v1/projects/programmingjs-90a13/databases/(default)/documents/%7bnamespace%7d'
+  'https://firestore.googleapis.com/v1/projects/programmingjs-90a13/databases/(default)/documents/%7b0fa8c6aa-bac3-4cd0%7d'
 );
 
 API.get();
