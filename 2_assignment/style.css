@@ -42,6 +42,20 @@ h3 {
   padding-bottom: 0.5rem;
 }
 
+.btns {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: white;
+  border: 1px solid var(--accent-dark);
+  background-color: var(--accent-color);
+  margin: 1rem 0;
+}
+
+.btns:hover {
+  box-shadow: 0 0 5px var(--secondary-color);
+  filter: brightness(120%);
+}
+
 /* Remaining calories */
 
 .container-remaining-cals {
@@ -68,6 +82,7 @@ h3 {
   padding: 1rem;
 }
 
+/* Food list */
 .container-food-list {
   max-height: 500px;
 }
@@ -88,7 +103,51 @@ h3 {
   padding: 0.5rem;
 }
 
-/* Add new food item */
+.food-list li:hover {
+  background-color: var(--secondary-bk-color);
+  cursor: pointer;
+}
+
+li.active {
+  background-color: var(--bk-color);
+}
+
+li.active:hover {
+  background-color: var(--bk-color);
+}
+
+#btn-add-selected {
+}
+
+#btn-modal {
+  color: black;
+  background-color: var(--secondary-bk-color);
+  border-color: var(--secondary-color);
+}
+
+/* Add new food entry */
+/* Modal */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: none;
+}
+
+.modal {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid var(--secondary-color);
+}
+
+/* Add new food entry form */
 .container-add-new {
   border: 1px solid var(--secondary-color);
   padding: 1rem;
@@ -96,16 +155,15 @@ h3 {
 
 .input {
   padding-bottom: 1rem;
-  width: 100px;
 }
 
 #btn-add-new-food {
-  padding: 0.5rem 1rem;
-  text-transform: uppercase;
-  color: white;
-  border: 1px solid var(--accent-dark);
-  background-color: var(--accent-color);
-  margin-bottom: 1rem;
+}
+
+#btn-cancel-modal {
+  color: black;
+  background-color: var(--secondary-bk-color);
+  border-color: var(--secondary-color);
 }
 
 .added-food {
@@ -138,7 +196,18 @@ h3 {
 }
 
 /* History */
-.container-history {
+.container-log {
   border: 1px solid var(--secondary-color);
   padding: 1rem;
+}
+
+.log {
+  list-style-type: none;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.log li {
+  padding: 0.5rem;
+  font-style: oblique;
 }

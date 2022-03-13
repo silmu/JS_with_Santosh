@@ -18,48 +18,95 @@
         <div class="diagram"> -->
       <!-- Canvas from charts goes here -->
       <!-- </div> -->
-      </div>
+      <!-- Add food -->
       <div class="container-add-food">
         <h2>Add food</h2>
+        <!-- Search -->
         <div class="container-search">
           <input type="text" id="input-search" placeholder="Search for food" />
         </div>
+        <!-- Food list -->
         <div class="container-food-list">
           <h3>Food list:</h3>
           <p>Values are shown per 100g</p>
-          <ul class="food-list">
-
-          </ul>
-        </div>
-      </div> 
-      <div class="container-add-new">
-          <h2>Add new food item</h2>
-          <form>
-            <div class="input">
-              <label for="input-new-food">Food name:</label>
-              <input type="text" id="input-new-food" />
-            </div>
-            <div class="input">
-              <label for="input-carbs">Carbs:</label>
-              <input type="number" id="input-carbs" />
-            </div>
-            <div class="input">
-              <label for="input-protein">Protein:</label>
-              <input type="number" id="input-protein" />
-            </div>
-            <div class="input">
-              <label for="input-fat">Fat:</label>
-              <input type="number" id="input-fat" />
-            </div>
-            <div class="input">
-              <label for="input-calories">Calories:</label>
-              <input type="number" id="input-calories" />
-            </div>
-            <button type="submit" id="btn-add-new-food">Add</button>
-          </form>
-          <div class="added-food"></div>
+          <ul class="food-list"></ul>
+          <button type="submit" class="btns" id="btn-add-selected">Add</button>
+          <button type="submit" class="btns" id="btn-modal">Add new</button>
         </div>
       </div>
+      <!-- Modal -->
+      <div class="modal-container">
+        <div class="modal">
+          <div class="container-add-new">
+            <h2>Add new food entry</h2>
+            <form>
+              <div class="input">
+                <label for="input-new-food">Food name:</label>
+                <input
+                  name="input-new-food"
+                  type="text"
+                  id="input-new-food"
+                  maxlength="200"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="input-carbs">Carbs:</label>
+                <input
+                  name="input-carbs"
+                  type="number"
+                  id="input-carbs"
+                  min="0"
+                  max="99999"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="input-protein">Protein:</label>
+                <input
+                  name="input-protein"
+                  type="number"
+                  id="input-protein"
+                  min="0"
+                  max="99999"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="input-fat">Fat:</label>
+                <input
+                  name="input-fat"
+                  type="number"
+                  id="input-fat"
+                  min="0"
+                  max="99999"
+                  required
+                />
+              </div>
+              <div class="input">
+                <label for="input-calories">Calories:</label>
+                <input
+                  name="input-calories"
+                  type="number"
+                  id="input-calories"
+                  min="0"
+                  max="99999"
+                  required
+                />
+              </div>
+              <button type="submit" class="btns" id="btn-add-new-food">
+                Add
+              </button>
+              <button type="submit" class="btns" id="btn-cancel-modal">
+                Cancel
+              </button>
+            </form>
+            <div class="added-food"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal end -->
+
       <!-- <div class="container-diary">
         <h2>Diary</h2>
         <div class="content-diary">
@@ -91,8 +138,12 @@
           </button>
         </div>
       </div> -->
-      <div class="container-history">
-        <h2>History</h2>
+      <div class="container-log">
+        <h2>Log</h2>
+        <div class="total-calories">
+          Total calories: 0, carbs: 0, fat: 0, protein: 0
+        </div>
+        <ul class="log"></ul>
       </div>
     </main>
     <script

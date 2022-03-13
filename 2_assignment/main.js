@@ -42,25 +42,35 @@ class FetchWrapper {
   }
 }
 
-//%7b is { %7d is }. The code between is random id
 //Current endpoint: %7b0fa8c6aa-bac3-4cd0%7d
 //{0fa8c6aa-bac3-4cd0}
 const API = new FetchWrapper(
   'https://firestore.googleapis.com/v1/projects/programmingjs-90a13/databases/(default)/documents/'
 );
 
+//CHOOSING FOOD
+
 const foodList = document.querySelector('.food-list');
+const log = document.querySelector('.log');
+const btnAddSelected = document.querySelector('#btn-add-selected');
 
 //Fetch all food items
 const displayFoodList = () => {
   API.get('{0fa8c6aa-bac3-4cd0}').then((data) => {
     data.documents.forEach((item) => {
+      //Display list
       const li = document.createElement('li');
       li.textContent = `${item.fields.name.stringValue.toUpperCase()} - carbs: ${
         item.fields.carbs.integerValue
       }, fat: ${item.fields.fat.integerValue}, protein: ${
         item.fields.protein.integerValue
       }, calories: ${item.fields.calories.integerValue}`;
+      //Add event listeners on li
+      li.addEventListener('click', () => {
+        //Assign active class to selected food item
+        li.classList.toggle('active');
+        console.log(`${li.textContent} is active`);
+      });
       foodList.appendChild(li);
     });
   });
@@ -69,6 +79,39 @@ const displayFoodList = () => {
 //Display food items list on load
 displayFoodList();
 
+//Add selected food item to log
+const logOnClick = () => {
+  btnAddSelected.addEventListener('click', () => {
+    console.log('Button Add food is clicked');
+    for (const el of foodList.children) {
+      if (el.classList.contains('active')) {
+        const li2 = document.createElement('li');
+        li2.textContent = el.textContent;
+        log.appendChild(li2);
+        //Remove selection for active food after it's added
+        el.classList.remove('active');
+      }
+    }
+  });
+};
+
+//Calculate total
+let totalCalories = 0;
+let totalCarbs = 0;
+let totalFat = 0;
+let totalProtein = 0;
+const totalLog = document.querySelector('#total-calories');
+
+const calcTotal = (calories, carbs, fat, protein) => {
+  totalCalories += calories;
+  totalCarbs += carbs;
+  totalFat += fat;
+  totalProtein += protein;
+  totalLog.textContent = `Total calories: ${totalCalories}, carbs: ${totalCarbs}, fat: ${totalFat}, protein: ${totalProtein}`;
+};
+
+logOnClick();
+
 //Search for food item oin the existing food list
 const inputSearch = document.querySelector('#input-search');
 
@@ -76,7 +119,7 @@ const searchForFood = (foodName) => {
   const foodListItems = document.querySelectorAll('li');
   foodListItems.forEach((item) => {
     if (item.textContent.includes(foodName.toUpperCase())) {
-      item.style.display = 'inline-block';
+      item.style.display = 'block';
       console.log(`${item.textContent} includes ${foodName}`);
     } else {
       item.style.display = 'none';
@@ -88,6 +131,8 @@ const searchForFood = (foodName) => {
 inputSearch.addEventListener('keyup', () => {
   searchForFood(inputSearch.value);
 });
+
+// EVERYTHING RELATED TO ADDING >>NEW<< FOOD ENTRY
 
 //Post new food to server with name, carbs, protein, fat and calories info
 const postNewFood = (carbs, fat, protein, name, calories) => {
@@ -112,11 +157,25 @@ const postNewFood = (carbs, fat, protein, name, calories) => {
   });
 };
 
+//Open and close modal for Add new food
+const openModal = document.querySelector('#btn-modal');
+const cancelModal = document.querySelector('#btn-cancel-modal');
+const modal = document.querySelector('.modal-container');
+
+openModal.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+cancelModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
 //Add new food item
 const btnAddNewFood = document.querySelector('#btn-add-new-food');
 
 btnAddNewFood.addEventListener('click', (e) => {
   e.preventDefault();
+  console.log('Button Add is clicked');
   //Select html elements for Add new food form
   const inputName = document
     .querySelector('#input-new-food')
@@ -131,4 +190,5 @@ btnAddNewFood.addEventListener('click', (e) => {
   output.textContent = `Added ${inputName} (carbs: ${inputCarbs}, protein: ${inputProtein}, fat: ${inputFat}, calories: ${inputCals})`;
   //Call post function to send new food info
   postNewFood(inputCarbs, inputFat, inputProtein, inputName, inputCals);
+  modal.style.display = 'none';
 });
