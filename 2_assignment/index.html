@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;1,300&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="style.css" />
     <title>Food tracker</title>
   </head>
@@ -18,20 +12,27 @@
       <h1><i class="fa-solid fa-carrot"></i> Food tracker</h1>
     </header>
     <main>
-      <div class="container-remaining-cals">
+      <!-- <div class="container-remaining-cals">
         <h2>Remaining calories</h2>
         <div class="remaining-cals"></div>
-        <div class="diagram">
-          <!-- Canvas from charts goes here -->
-        </div>
+        <div class="diagram"> -->
+      <!-- Canvas from charts goes here -->
+      <!-- </div> -->
       </div>
       <div class="container-add-food">
         <h2>Add food</h2>
         <div class="container-search">
           <input type="text" id="input-search" placeholder="Search for food" />
         </div>
+        <div class="container-food-list">
+          <h3>Food list:</h3>
+          <p>Values are shown per 100g</p>
+          <ul class="food-list">
+
+          </ul>
+        </div>
       </div> 
-        <div class="container-add-new">
+      <div class="container-add-new">
           <h2>Add new food item</h2>
           <form>
             <div class="input">
@@ -54,10 +55,12 @@
               <label for="input-calories">Calories:</label>
               <input type="number" id="input-calories" />
             </div>
+            <button type="submit" id="btn-add-new-food">Add</button>
           </form>
+          <div class="added-food"></div>
         </div>
       </div>
-      <div class="container-diary">
+      <!-- <div class="container-diary">
         <h2>Diary</h2>
         <div class="content-diary">
           <h3>Breakfast</h3>
@@ -87,11 +90,15 @@
             Add food <i class="fa-solid fa-plus"></i>
           </button>
         </div>
-      </div>
+      </div> -->
       <div class="container-history">
         <h2>History</h2>
       </div>
     </main>
-    <script src="https://kit.fontawesome.com/45a0aa406c.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/45a0aa406c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
   </body>
 </html>
