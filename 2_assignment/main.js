@@ -163,6 +163,7 @@ const cancelModal = document.querySelector('#btn-cancel-modal');
 const modal = document.querySelector('.modal-container');
 
 openModal.addEventListener('click', () => {
+  window.scrollTo(0, 0);
   modal.style.display = 'block';
 });
 
@@ -175,7 +176,6 @@ const btnAddNewFood = document.querySelector('#btn-add-new-food');
 
 btnAddNewFood.addEventListener('click', (e) => {
   e.preventDefault();
-  window.scrollTo(0, 0);
   console.log('Button Add is clicked');
   //Select html elements for Add new food form
   const inputName = document
