@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Food tracker</title>
+  </head>
+  <body>
+    <header>
+      <h1><i class="fa-solid fa-carrot"></i> Food tracker</h1>
+    </header>
+    <main>
+      <!-- <div class="container-remaining-cals">
+        <h2>Remaining calories</h2>
+        <div class="remaining-cals"></div>
+        <div class="diagram"> -->
+      <!-- Canvas from charts goes here -->
+      <!-- </div> -->
+      <!-- Add food -->
+      <div class="container-add-food">
+        <h2>Add food</h2>
+        <!-- Search -->
+        <div class="container-search">
+          <input type="text" id="input-search" placeholder="Search for food" />
+        </div>
+        <!-- Food list -->
+        <div class="container-food-list">
+          <h3>Food list:</h3>
+          <p>Values are shown per 100g</p>
+          <ul class="food-list"></ul>
+          <button type="submit" class="btns" id="btn-add-selected">Add</button>
+          <button type="submit" class="btns" id="btn-modal">Add new</button>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal-container">
+        <div class="modal">
+          <div class="container-add-new">
+            <h2>Add new food entry</h2>
+            <form>
+              <div class="input">
+                <label for="input-new-food">Food name:</label>
+                <input
+                  name="input-new-food"
+                  type="text"
+                  id="input-new-food"
+                  maxlength="200"
+                />
+              </div>
+              <div class="input">
+                <label for="input-carbs">Carbs:</label>
+                <input
+                  name="input-carbs"
+                  type="number"
+                  id="input-carbs"
+                  min="0"
+                  max="99999"
+                />
+              </div>
+              <div class="input">
+                <label for="input-protein">Protein:</label>
+                <input
+                  name="input-protein"
+                  type="number"
+                  id="input-protein"
+                  min="0"
+                  max="99999"
+                />
+              </div>
+              <div class="input">
+                <label for="input-fat">Fat:</label>
+                <input
+                  name="input-fat"
+                  type="number"
+                  id="input-fat"
+                  min="0"
+                  max="99999"
+                />
+              </div>
+              <div class="input">
+                <label for="input-calories">Calories:</label>
+                <input
+                  name="input-calories"
+                  type="number"
+                  id="input-calories"
+                  min="0"
+                  max="99999"
+                />
+              </div>
+              <button type="submit" class="btns" id="btn-add-new-food">
+                Add
+              </button>
+              <button type="submit" class="btns" id="btn-cancel-modal">
+                Cancel
+              </button>
+            </form>
+            <div class="added-food"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal end -->
+
+      <!-- <div class="container-diary">
+        <h2>Diary</h2>
+        <div class="content-diary">
+          <h3>Breakfast</h3>
+          <ul class="breakfast"></ul>
+          <button type="submit" id="btn-add-breakfast" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Lunch</h3>
+          <ul class="lunch"></ul>
+          <button type="submit" id="btn-add-lunch" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Dinner</h3>
+          <ul class="dinner"></ul>
+          <button type="submit" id="btn-add-dinner" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+        <div class="content-diary">
+          <h3>Snacks</h3>
+          <ul class="snacks"></ul>
+          <button type="submit" id="btn-add-snacks" class="btns-diary">
+            Add food <i class="fa-solid fa-plus"></i>
+          </button>
+        </div>
+      </div> -->
+      <div class="container-log">
+        <h2>Log</h2>
+        <div class="total-calories">
+          Total calories: 0, carbs: 0, fat: 0, protein: 0
+        </div>
+        <ul class="log"></ul>
+      </div>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/45a0aa406c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

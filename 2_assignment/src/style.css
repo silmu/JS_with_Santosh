@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;0,600;0,700;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bk-color: #cedd55;
+  --secondary-color: #c6c6c6;
+  --secondary-bk-color: #f5f5f5;
+  --accent-color: #d45464;
+  --accent-dark: #b64451;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1578855691621-8a08ea00d1fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  font-family: 'Raleway', sans-serif;
+}
+
+header,
+main {
+  max-width: 1200px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--bk-color);
+  color: white;
+  height: fit-content;
+  padding: 1rem;
+}
+
+h2,
+h3 {
+  padding-bottom: 0.5rem;
+}
+
+.btns {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  color: white;
+  border: 1px solid var(--accent-dark);
+  background-color: var(--accent-color);
+  margin: 1rem 0;
+}
+
+.btns:hover {
+  box-shadow: 0 0 5px var(--secondary-color);
+  filter: brightness(120%);
+}
+
+/* Remaining calories */
+
+.container-remaining-cals {
+  border: 1px solid var(--secondary-color);
+  padding: 1rem;
+}
+
+/* Add food */
+.container-search {
+  padding: 1rem;
+  background-color: var(--bk-color);
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+}
+
+#input-search {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--secondary-color);
+}
+
+.container-add-food {
+  border-bottom: 1px solid var(--secondary-color);
+  padding: 1rem;
+}
+
+/* Food list */
+.container-food-list {
+  max-height: 500px;
+}
+
+.container-food-list p {
+  font-style: italic;
+  padding-bottom: 0.5rem;
+}
+
+.food-list {
+  list-style-type: none;
+  max-height: 200px;
+  overflow: auto;
+  border: 1px solid var(--secondary-color);
+}
+
+.food-list li {
+  padding: 0.5rem;
+}
+
+.food-list li:hover {
+  background-color: var(--secondary-bk-color);
+  cursor: pointer;
+}
+
+li.active {
+  background-color: var(--bk-color);
+}
+
+li.active:hover {
+  background-color: var(--bk-color);
+}
+
+#btn-add-selected {
+}
+
+#btn-modal {
+  color: black;
+  background-color: var(--secondary-bk-color);
+  border-color: var(--secondary-color);
+}
+
+/* Add new food entry */
+/* Modal */
+.modal-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  display: none;
+}
+
+.modal {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin: 0 auto;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid var(--secondary-color);
+}
+
+/* Add new food entry form */
+.container-add-new {
+  padding: 1rem;
+}
+
+.input {
+  padding-bottom: 1rem;
+}
+
+#btn-add-new-food {
+}
+
+#btn-cancel-modal {
+  color: black;
+  background-color: var(--secondary-bk-color);
+  border-color: var(--secondary-color);
+}
+
+.added-food {
+  background-color: var(--bk-color);
+  min-height: fit-content;
+  padding: 1rem 0.5rem;
+}
+
+/* Diary */
+.container-diary {
+  border: 1px solid var(--secondary-color);
+  padding: 1rem;
+}
+.btns-diary {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-bk-color);
+  margin-bottom: 1rem;
+}
+
+.btns-diary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+}
+
+.btns-diary:active {
+  background: linear-gradient(var(--accent-dark), var(--accent-color));
+  box-shadow: 2px 2px 2px var(--secondary-color);
+}
+
+/* History */
+.container-log {
+  padding: 1rem;
+}
+
+.log {
+  list-style-type: none;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.log li {
+  padding: 0.5rem;
+  font-style: oblique;
+}
