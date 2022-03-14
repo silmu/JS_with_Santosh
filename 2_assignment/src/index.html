@@ -12,12 +12,15 @@
       <h1><i class="fa-solid fa-carrot"></i> Food tracker</h1>
     </header>
     <main>
-      <!-- <div class="container-remaining-cals">
+      <div class="container-remaining-cals">
         <h2>Remaining calories</h2>
-        <div class="remaining-cals"></div>
-        <div class="diagram"> -->
-      <!-- Canvas from charts goes here -->
-      <!-- </div> -->
+        <div class="remaining-cals">1200 - 100 = 1100</div>
+
+        <!-- Canvas from charts goes here -->
+        <div class="container-chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
       <!-- Add food -->
       <div class="container-add-food">
         <h2>Add food</h2>
@@ -135,9 +138,9 @@
       </div> -->
       <div class="container-log">
         <h2>Log</h2>
-        <div class="total-calories">
+        <!-- <div class="total-calories">
           Total calories: 0, carbs: 0, fat: 0, protein: 0
-        </div>
+        </div> -->
         <ul class="log"></ul>
       </div>
     </main>
@@ -145,6 +148,6 @@
       src="https://kit.fontawesome.com/45a0aa406c.js"
       crossorigin="anonymous"
     ></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

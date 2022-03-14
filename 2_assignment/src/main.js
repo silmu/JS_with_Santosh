@@ -1,15 +1,11 @@
 'use strict';
+import Chart from 'chart.js/auto';
 
 class FetchWrapper {
   constructor(baseURL) {
     this.baseURL = baseURL;
   }
 
-  // async get(endpoint) {
-  //   const response = await fetch(baseURL + '/' + endpoint);
-  //   const data = await response.json();
-  //   console.log(data);
-  // }
   get(endpoint) {
     return fetch(this.baseURL + endpoint).then((response) => response.json());
   }
@@ -49,7 +45,6 @@ const API = new FetchWrapper(
 );
 
 //CHOOSING FOOD
-
 const foodList = document.querySelector('.food-list');
 const log = document.querySelector('.log');
 const btnAddSelected = document.querySelector('#btn-add-selected');
@@ -58,6 +53,7 @@ const btnAddSelected = document.querySelector('#btn-add-selected');
 const displayFoodList = () => {
   API.get('{0fa8c6aa-bac3-4cd0}').then((data) => {
     data.documents.forEach((item) => {
+      // Save item to array
       //Display list
       const li = document.createElement('li');
       li.textContent = `${item.fields.name.stringValue.toUpperCase()} - carbs: ${
@@ -80,39 +76,79 @@ const displayFoodList = () => {
 displayFoodList();
 
 //Add selected food item to log
+//Save li element to calculate total calories
+
 const logOnClick = () => {
   btnAddSelected.addEventListener('click', () => {
     console.log('Button Add food is clicked');
     for (const el of foodList.children) {
       if (el.classList.contains('active')) {
+        console.log('Selected element to add: ' + el.textContent);
         const li2 = document.createElement('li');
         li2.textContent = el.textContent;
         log.appendChild(li2);
         //Remove selection for active food after it's added
         el.classList.remove('active');
+
+        //Recalculate total calories
+        calcTotal(el.textContent);
       }
     }
   });
 };
 
-//Calculate total
-let totalCalories = 0;
-let totalCarbs = 0;
-let totalFat = 0;
-let totalProtein = 0;
-const totalLog = document.querySelector('#total-calories');
-
-const calcTotal = (calories, carbs, fat, protein) => {
-  totalCalories += calories;
-  totalCarbs += carbs;
-  totalFat += fat;
-  totalProtein += protein;
-  totalLog.textContent = `Total calories: ${totalCalories}, carbs: ${totalCarbs}, fat: ${totalFat}, protein: ${totalProtein}`;
-};
-
 logOnClick();
 
-//Search for food item oin the existing food list
+//Total calories
+let totalCalories = 0;
+let totalProtein = 0;
+let totalFat = 0;
+let totalCarbs = 0;
+let myChart;
+const chartContainer = document.querySelector('.container-chart');
+
+//Chart
+const ctx = document.getElementById('myChart');
+
+const createChart = () => {
+  myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Protein', 'Fat', 'Carbs'],
+      datasets: [
+        {
+          label: 'Nutritional values',
+          data: [totalProtein, totalFat, totalCarbs],
+          backgroundColor: ['#d45464', '#FFF06C', '#cedd55'],
+          hoverOffset: 4,
+          cutout: 50,
+        },
+      ],
+    },
+  });
+  console.log(myChart);
+};
+
+createChart();
+
+const calcTotal = (el) => {
+  let matches = el.match(/\d+/g);
+
+  totalCarbs += Number(matches[0]);
+  totalFat += Number(matches[1]);
+  totalProtein += Number(matches[2]);
+  totalCalories += Number(matches[3]);
+  console.log(
+    `Total carbs = ${totalCarbs} Total fat = ${totalFat} Total protein = ${totalProtein} Total calories = ${totalCalories}`
+  );
+
+  //Redraw chart
+  chartContainer.style.display = 'block';
+  myChart.destroy();
+  createChart();
+};
+
+//Search for food item in the existing food list
 const inputSearch = document.querySelector('#input-search');
 
 const searchForFood = (foodName) => {

@@ -61,6 +61,22 @@ h3 {
 .container-remaining-cals {
   border: 1px solid var(--secondary-color);
   padding: 1rem;
+  text-align: center;
+}
+
+.remaining-cals {
+  font-size: 2rem;
+}
+
+/* Chart */
+.container-chart {
+  display: none;
+  height: fit-content;
+  padding: 1rem;
+}
+
+#myChart {
+  max-height: 30vh;
 }
 
 /* Add food */
@@ -135,6 +151,7 @@ li.active:hover {
   width: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 1;
   display: none;
 }
