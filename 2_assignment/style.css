@@ -18,7 +18,7 @@ body {
   background: url('https://images.unsplash.com/photo-1578855691621-8a08ea00d1fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   backdrop-filter: blur(6px);
   font-family: 'Raleway', sans-serif;
 }
@@ -130,8 +130,9 @@ li.active:hover {
 .modal-container {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
-  height: 100vh;
-  width: 100vw;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   z-index: 1;
@@ -144,12 +145,13 @@ li.active:hover {
   top: 0;
   margin: 0 auto;
   background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   border: 1px solid var(--secondary-color);
 }
 
 /* Add new food entry form */
 .container-add-new {
-  border: 1px solid var(--secondary-color);
   padding: 1rem;
 }
 
