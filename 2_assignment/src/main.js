@@ -105,6 +105,8 @@ let totalProtein = 0;
 let totalFat = 0;
 let totalCarbs = 0;
 let myChart;
+let goal = 1200;
+const remainingCalories = document.querySelector('.remaining-cals');
 const chartContainer = document.querySelector('.container-chart');
 
 //Chart
@@ -126,11 +128,11 @@ const createChart = () => {
       ],
     },
   });
-  console.log(myChart);
 };
 
 createChart();
 
+//Calculate total
 const calcTotal = (el) => {
   let matches = el.match(/\d+/g);
 
@@ -141,6 +143,10 @@ const calcTotal = (el) => {
   console.log(
     `Total carbs = ${totalCarbs} Total fat = ${totalFat} Total protein = ${totalProtein} Total calories = ${totalCalories}`
   );
+  //Display remaining calories
+  remainingCalories.textContent = `${goal} - ${totalCalories} = ${
+    goal - totalCalories
+  }`;
 
   //Redraw chart
   chartContainer.style.display = 'block';
