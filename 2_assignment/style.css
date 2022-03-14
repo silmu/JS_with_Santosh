@@ -78,7 +78,7 @@ h3 {
 }
 
 .container-add-food {
-  border: 1px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
   padding: 1rem;
 }
 
@@ -199,7 +199,6 @@ li.active:hover {
 
 /* History */
 .container-log {
-  border: 1px solid var(--secondary-color);
   padding: 1rem;
 }
 

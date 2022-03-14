@@ -67,10 +67,27 @@ btn.addEventListener('click', (e) => {
 
 const printRepos = (data) => {
   data.forEach((repo) => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    const p = document.createElement('p');
+    const h2 = document.createElement('h2');
+
+    a.setAttribute('href', repo.html_url);
+    a.setAttribute('target', '_blank');
+
+    h2.appendChild(document.createTextNode(repo.name));
+
+    a.appendChild(h2);
     repo.description === null ? (repo.description = '') : '';
-    ul.insertAdjacentHTML(
-      'beforeend',
-      `<li><a href="${repo.html_url}" target="_blank"><h2>${repo.full_name}</h2><p>${repo.description}</p></a></li>`
-    );
+    p.appendChild(document.createTextNode(repo.description));
+    a.appendChild(p);
+
+    li.appendChild(a);
+    ul.appendChild(li);
+    // repo.description === null ? (repo.description = '') : '';
+    // ul.insertAdjacentHTML(
+    //   'beforeend',
+    //   `<li><a href="${repo.html_url}" target="_blank"><h2>${repo.full_name}</h2><p>${repo.description}</p></a></li>`
+    // );
   });
 };

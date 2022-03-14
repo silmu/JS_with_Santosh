@@ -7,13 +7,10 @@ Then, get rid of the var declarations and feel free to remove unnecessary cons
 **/
 
 const getSquarePerimeter = (side) => {
-  console.log(result);
-  var result = 0;
-  console.log(result);
+  let result = 0;
   result = side * 4;
-  console.log(result);
   return result;
-}
+};
 
 // Sample usage - do not modify
 console.log(getSquarePerimeter(5)); // 20

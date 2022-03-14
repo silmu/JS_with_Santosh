@@ -187,9 +187,23 @@ btnAddNewFood.addEventListener('click', (e) => {
   const inputCals = document.querySelector('#input-calories').value;
   const output = document.querySelector('.added-food');
   console.log(inputCarbs, inputFat, inputProtein, inputName, inputCals);
-  //Display new food that is added under the form
-  output.textContent = `Added ${inputName} (carbs: ${inputCarbs}, protein: ${inputProtein}, fat: ${inputFat}, calories: ${inputCals})`;
-  //Call post function to send new food info
-  postNewFood(inputCarbs, inputFat, inputProtein, inputName, inputCals);
+
+  //Check if any of the values are empty
+  let check = 0;
+  let values = [inputCarbs, inputFat, inputProtein, inputName, inputCals];
+  values.forEach((value) => {
+    if (value.length < 1) check++;
+  });
+  if (check < 0) {
+    //Call post function to send new food info
+    postNewFood(inputCarbs, inputFat, inputProtein, inputName, inputCals);
+    //Display new food that is added under the form
+    output.textContent = `Added ${inputName} (carbs: ${inputCarbs}, protein: ${inputProtein}, fat: ${inputFat}, calories: ${inputCals})`;
+  } else {
+    alert('You have to add all values');
+  }
   modal.style.display = 'none';
+
+  //Reload food items list on to display new food entry
+  displayFoodList();
 });
