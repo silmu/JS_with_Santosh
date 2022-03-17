@@ -32,20 +32,20 @@ class FetchWrapper {
 
 const baseCurrency = document.querySelector('#base-currency');
 const targetCurrency = document.querySelector('#target-currency');
+const conversionResult = document.querySelector('#conversion-result');
 
 const API = new FetchWrapper(
   'https://v6.exchangerate-api.com/v6/ebb7b2151adcd896ef4e81cf/latest/'
 );
 
-console.log(baseCurrency.value);
+const calculateResult = (e) => {
+  API.get(baseCurrency.value).then((data) => {
+    conversionResult.textContent = data.conversion_rates[targetCurrency.value];
+  });
+};
 
-baseCurrency.addEventListener('change', () => {
-  console.log(baseCurrency.value);
-});
-
-API.get('USD').then((data) => {
-  // console.log(data.conversion_rates.EUR);
-});
+baseCurrency.addEventListener('change', calculateResult);
+targetCurrency.addEventListener('change', calculateResult);
 
 //TODO
 /* The goal of this project is to show the user the conversion rate between 2 currency pairs.

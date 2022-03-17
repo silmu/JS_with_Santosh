@@ -1,42 +1,6 @@
 'use strict';
 import Chart from 'chart.js/auto';
-
-class FetchWrapper {
-  constructor(baseURL) {
-    this.baseURL = baseURL;
-  }
-
-  get(endpoint) {
-    return fetch(this.baseURL + endpoint).then((response) => response.json());
-  }
-
-  put(endpoint, body) {
-    return this._send('put', endpoint, body);
-  }
-
-  post(endpoint, body) {
-    console.log('Post sent: ' + body);
-    return this._send('post', endpoint, body);
-  }
-
-  patch(endpoint, body) {
-    return this._send('patch', endpoint, body);
-  }
-
-  delete(endpoint, body) {
-    return this._send('delete', endpoint, body);
-  }
-
-  _send(method, endpoint, body) {
-    return fetch(this.baseURL + endpoint, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    }).then((response) => response.json());
-  }
-}
+import { FetchWrapper } from './fetch-wrapper';
 
 //Current endpoint: %7b0fa8c6aa-bac3-4cd0%7d
 //{0fa8c6aa-bac3-4cd0}
