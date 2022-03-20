@@ -20,9 +20,9 @@ const displayFoodList = () => {
       // Save item to array
       //Display list
       const li = document.createElement('li');
-      li.textContent = `${item.fields.name.stringValue.toUpperCase()} - carbs: ${
+      li.textContent = `${item.fields.name.stringValue.toUpperCase()} - 🍏 carbs: ${
         item.fields.carbs.integerValue
-      }, fat: ${item.fields.fat.integerValue}, protein: ${
+      }, 🥞 fat: ${item.fields.fat.integerValue}, 🍖 protein: ${
         item.fields.protein.integerValue
       }, calories: ${item.fields.calories.integerValue}`;
       //Add event listeners on li
@@ -80,7 +80,7 @@ const createChart = () => {
   myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ['Protein', 'Fat', 'Carbs'],
+      labels: ['🍖 Protein', '🥞 Fat', '🍏 Carbs'],
       datasets: [
         {
           label: 'Nutritional values',
