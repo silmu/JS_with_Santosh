@@ -8,7 +8,7 @@ const API = new FetchWrapper(
   'https://firestore.googleapis.com/v1/projects/programmingjs-90a13/databases/(default)/documents/'
 );
 
-//CHOOSING FOOD
+//ADDING FOOD FROM FOOD LIST
 const foodList = document.querySelector('.food-list');
 const log = document.querySelector('.log');
 const btnAddSelected = document.querySelector('#btn-add-selected');
@@ -20,16 +20,15 @@ const displayFoodList = () => {
       // Save item to array
       //Display list
       const li = document.createElement('li');
-      li.textContent = `${item.fields.name.stringValue.toUpperCase()} - 🍏 carbs: ${
+      li.textContent = `${item.fields.name.stringValue.toUpperCase()} - 🍏 ${
         item.fields.carbs.integerValue
-      }, 🥞 fat: ${item.fields.fat.integerValue}, 🍖 protein: ${
+      } g. 🥞 ${item.fields.fat.integerValue} g. 🍖 ${
         item.fields.protein.integerValue
-      }, calories: ${item.fields.calories.integerValue}`;
+      } g. calories: ${item.fields.calories.integerValue}`;
       //Add event listeners on li
-      li.addEventListener('click', () => {
-        //Assign active class to selected food item
-        li.classList.toggle('active');
-        console.log(`${li.textContent} is active`);
+      //Assign active class to selected food item
+      li.addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('active');
       });
       foodList.appendChild(li);
     });
@@ -126,12 +125,10 @@ const searchForFood = (foodName) => {
   foodListItems.forEach((item) => {
     if (item.textContent.includes(foodName.toUpperCase())) {
       item.style.display = 'block';
-      console.log(`${item.textContent} includes ${foodName}`);
     } else {
       item.style.display = 'none';
     }
   });
-  console.log(foodName);
 };
 
 inputSearch.addEventListener('keyup', () => {
@@ -173,14 +170,15 @@ openModal.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
-cancelModal.addEventListener('click', () => {
+cancelModal.addEventListener('click', (e) => {
+  e.preventDefault();
   modal.style.display = 'none';
 });
 
 //Add new food item
 const btnAddNewFood = document.querySelector('#btn-add-new-food');
 
-btnAddNewFood.addEventListener('click', (e) => {
+const addNewFood = (e) => {
   e.preventDefault();
   console.log('Button Add is clicked');
   //Select html elements for Add new food form
@@ -192,7 +190,7 @@ btnAddNewFood.addEventListener('click', (e) => {
   const inputFat = document.querySelector('#input-fat').value;
   const inputCals = document.querySelector('#input-calories').value;
   const output = document.querySelector('.added-food');
-  console.log(inputCarbs, inputFat, inputProtein, inputName, inputCals);
+  console.log(inputName, inputCarbs, inputFat, inputProtein, inputCals);
 
   //Check if any of the values are empty
   let check = 0;
@@ -200,16 +198,18 @@ btnAddNewFood.addEventListener('click', (e) => {
   values.forEach((value) => {
     if (value.length < 1) check++;
   });
-  if (check < 0) {
+  if (check === 0) {
     //Call post function to send new food info
     postNewFood(inputCarbs, inputFat, inputProtein, inputName, inputCals);
     //Display new food that is added under the form
     output.textContent = `Added ${inputName} (carbs: ${inputCarbs}, protein: ${inputProtein}, fat: ${inputFat}, calories: ${inputCals})`;
+    //Reload food items list on to display new food entry
+    // location.reload();
   } else {
     alert('You have to add all values');
+    console.log('Empty fields:' + check);
   }
   modal.style.display = 'none';
+};
 
-  //Reload food items list on to display new food entry
-  displayFoodList();
-});
+btnAddNewFood.addEventListener('click', addNewFood);
